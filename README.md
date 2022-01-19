@@ -12,5 +12,4 @@ Consider a single bubble in an infinite domain of liquid.
 
 ## Equation
 
-<img src="https://bit.ly/3IiZsPq" align="center" border="0" alt="\frac{p_B - p_{ \infty }}{\rho_L} = R \frac{\mathrm{d}^2R}{\mathrm{d}t^2} } + \frac{3}{2} \left( \frac{\mathrm{d}R}{\mathrm{d}t} \right)^2 + \frac{4\nu_L}{R} \frac{\mathrm{d}R}{\mathrm{d}t} + \frac{2S}{\rho_L R}" width="347" height="44" />
-
+<img src="https://bit.ly/3IiZsPq" align="center" border="0" alt="\frac{p_B - p_{ \infty }}{\rho_L} = R \frac{\mathrm{d}^2R}{\mathrm{d}t^2} } + \frac{3}{2} \left( \frac{\mathrm{d}R}{\mathrm{d}t} \right)^2 + \frac{4\nu_L}{R} \frac{\mathrm{d}R}{\mathrm{d}t} + \frac{2S}{\rho_L R}" width="694" height="89" />
