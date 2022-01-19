@@ -12,4 +12,4 @@ Consider a single bubble in an infinite domain of liquid.
 
 ## Equation
 
-![Image](https://latex.codecogs.com/svg.latex?x%3D%5Cfrac%7B-b%5Cpm%5Csqrt%7Bb%5E2-4ac%7D%7D%7B2a%7D)
+![Image](http://www.sciweavers.org/tex2img.php?eq=%5Cfrac%7Bp_B%20-%20p_%7B%20%5Cinfty%20%7D%7D%7B%5Crho_L%7D%20%3D%20R%20%5Cfrac%7B%5Cmathrm%7Bd%7D%5E2R%7D%7B%5Cmathrm%7Bd%7Dt%5E2%7D%20%7D%20%2B%20%5Cfrac%7B3%7D%7B2%7D%20%5Cleft%28%20%5Cfrac%7B%5Cmathrm%7Bd%7DR%7D%7B%5Cmathrm%7Bd%7Dt%7D%20%5Cright%29%5E2%20%2B%20%5Cfrac%7B4%5Cnu_L%7D%7BR%7D%20%5Cfrac%7B%5Cmathrm%7Bd%7DR%7D%7B%5Cmathrm%7Bd%7Dt%7D%20%2B%20%5Cfrac%7B2S%7D%7B%5Crho_L%20R%7D&bc=White&fc=Black&im=jpg&fs=24&ff=modern&edit=0)
