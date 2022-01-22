@@ -36,7 +36,7 @@ The general Rayleigh-Plesset equation is written below.
 
 We use the ODE45 solver to solve the differential equation
 
-<img src="http://www.sciweavers.org/tex2img.php?eq=%20%5Cbegin%7Bpmatrix%7D%5Cdot%7BR%7D%20%5C%5C%20%5Cddot%7BR%7D%20%5Cend%7Bpmatrix%7D%20%3D%20%20%5Cbegin%7Bpmatrix%7Df_1%28R%2C%20%5Cdot%7BR%7D%29%20%5C%5C%20f_2%28R%2C%20%5Cdot%7BR%7D%29%20%5Cend%7Bpmatrix%7D&bc=White&fc=Black&im=png&fs=18&ff=modern&edit=0" align="center" border="0" alt=" \begin{pmatrix}\dot{R} \\ \ddot{R} \end{pmatrix} =  \begin{pmatrix}f_1(R, \dot{R}) \\ f_2(R, \dot{R}) \end{pmatrix}" width="219" height="65" />
+<img src="https://latex.codecogs.com/svg.image?\bg_white&space;\begin{pmatrix}\dot{R}&space;\\&space;\ddot{R}&space;\end{pmatrix}&space;=&space;&space;\begin{pmatrix}f_1(R,&space;\dot{R})&space;\\&space;f_2(R,&space;\dot{R})&space;\end{pmatrix}&space;" title="\bg_white \begin{pmatrix}\dot{R} \\ \ddot{R} \end{pmatrix} = \begin{pmatrix}f_1(R, \dot{R}) \\ f_2(R, \dot{R}) \end{pmatrix} " />
 
 Where *f*<sub>1</sub>(*R*, *Ṙ*) = *Ṙ* and *f*<sub>2</sub>(*R*) is found by 
 rearranging the Rayleigh-Plesset equation above and solving for the second derivative of *R*.
@@ -49,17 +49,17 @@ Assuming that the bubble contains some gas with partial pressure *p*<sub>*G*<sub
 at radius </sub>*R*<sub>0</sub> and temperature *T*<sub>∞</sub>.
 The pressure inside the bubble is given by
 
-<img src="http://www.sciweavers.org/tex2img.php?eq=p_B%28t%29%20%3D%20p_V%28T_B%29%20%2B%20p_%7BG_0%7D%5Cleft%28%5Cfrac%7BT_B%7D%7BT_%7B%5Cinfty%7D%7D%5Cright%29%5Cleft%28%5Cfrac%7BR_0%7D%7BR%7D%5Cright%29%5E3&bc=White&fc=Black&im=png&fs=24&ff=modern&edit=0" align="center" border="0" alt="p_B(t) = p_V(T_B) + p_{G_0}\left(\frac{T_B}{T_{\infty}}\right)\left(\frac{R_0}{R}\right)^3" width="531" height="89" />
+<img src="https://latex.codecogs.com/svg.image?\bg_white&space;p_B(t)&space;=&space;p_V(T_B)&space;&plus;&space;p_{G_0}\left(\frac{T_B}{T_{\infty}}\right)\left(\frac{R_0}{R}\right)^3" title="\bg_white p_B(t) = p_V(T_B) + p_{G_0}\left(\frac{T_B}{T_{\infty}}\right)\left(\frac{R_0}{R}\right)^3" />
 
 Assuming the absence of thermal effects, i.e. in an inertially controlled setup, this becomes
 
-<img src="http://www.sciweavers.org/tex2img.php?eq=p_B%28t%29%20%3D%20p_V%28T_B%29%20%2B%20p_%7BG_0%7D%5Cleft%28%5Cfrac%7BR_0%7D%7BR%7D%5Cright%29%5E3&bc=White&fc=Black&im=png&fs=24&ff=modern&edit=0" align="center" border="0" alt="p_B(t) = p_V(T_B) + p_{G_0}\left(\frac{R_0}{R}\right)^3" width="425" height="89" />
+<img src="https://latex.codecogs.com/svg.image?\bg_white&space;p_B(t)&space;=&space;p_V(T_B)&space;&plus;&space;p_{G_0}\left(\frac{R_0}{R}\right)^3" title="\bg_white p_B(t) = p_V(T_B) + p_{G_0}\left(\frac{R_0}{R}\right)^3" />
 
 ## Pressure at Infinity
 
 For the pressure at infinity we use a Gaussian waveform:
 
-<img src="http://www.sciweavers.org/tex2img.php?eq=p_%7B%5Cinfty%200%7D%20%281%20-%20A%5Cexp%28-%28t%2Ft_f%29%5E2%29%29&bc=White&fc=Black&im=png&fs=24&ff=modern&edit=0" align="center" border="0" alt="p_{\infty 0} (1 - A\exp(-(t/t_f)^2))" width="367" height="42" />
+<img src="https://latex.codecogs.com/svg.image?\bg_white&space;p_{\infty&space;0}&space;(1&space;-&space;A\exp(-(t/t_f)^2))" title="\bg_white p_{\infty 0} (1 - A\exp(-(t/t_f)^2))" />
 
 where *p*<sub>∞0</sub> and *A* are constants and *t*<sub>*f*</sub> is the time scale.
 
