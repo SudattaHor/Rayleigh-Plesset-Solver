@@ -36,7 +36,7 @@ The general Rayleigh-Plesset equation is written below.
 
 We use the ODE45 solver to solve the differential equation
 
-<img src="https://latex.codecogs.com/svg.image?\bg_white&space;\begin{pmatrix}\dot{R}&space;\\&space;\ddot{R}&space;\end{pmatrix}&space;=&space;&space;\begin{pmatrix}f_1(R,&space;\dot{R})&space;\\&space;f_2(R,&space;\dot{R})&space;\end{pmatrix}&space;" title="\bg_white \begin{pmatrix}\dot{R} \\ \ddot{R} \end{pmatrix} = \begin{pmatrix}f_1(R, \dot{R}) \\ f_2(R, \dot{R}) \end{pmatrix} " />
+<img src="https://latex.codecogs.com/png.image?\dpi{200}&space;\bg_white&space;\begin{pmatrix}\dot{R}&space;\\&space;\ddot{R}&space;\end{pmatrix}&space;=&space;&space;\begin{pmatrix}f_1(R,&space;\dot{R})&space;\\&space;f_2(R,&space;\dot{R})&space;\end{pmatrix}&space;" title="\bg_white \begin{pmatrix}\dot{R} \\ \ddot{R} \end{pmatrix} = \begin{pmatrix}f_1(R, \dot{R}) \\ f_2(R, \dot{R}) \end{pmatrix} " />
 
 Where *f*<sub>1</sub>(*R*, *Ṙ*) = *Ṙ* and *f*<sub>2</sub>(*R*) is found by 
 rearranging the Rayleigh-Plesset equation above and solving for the second derivative of *R*.
@@ -46,7 +46,7 @@ pressure is *p*<sub>*V*</sub>.
 ## Bubble Contents
 
 Assuming that the bubble contains some gas with partial pressure *p*<sub>*G*<sub>0</sub> 
-at radius </sub>*R*<sub>0</sub> and temperature *T*<sub>∞</sub>.
+at radius *R*<sub>0</sub> and temperature *T*<sub>∞</sub>.
 The pressure inside the bubble is given by
 
 <img src="https://latex.codecogs.com/svg.image?\bg_white&space;p_B(t)&space;=&space;p_V(T_B)&space;&plus;&space;p_{G_0}\left(\frac{T_B}{T_{\infty}}\right)\left(\frac{R_0}{R}\right)^3" title="\bg_white p_B(t) = p_V(T_B) + p_{G_0}\left(\frac{T_B}{T_{\infty}}\right)\left(\frac{R_0}{R}\right)^3" />
