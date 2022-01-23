@@ -1,4 +1,4 @@
-function drdt = f_gen_rp(t, r)
+function drdt = m_gen_rp(t, r)
     % Evaluates the general Rayleigh-Plesset equation
     % INPUTS:
     %   t - the current time

@@ -20,7 +20,7 @@ t_f = 9E-07;
 
 % COMPUTATION
 tspan = [0, t_f];   
-[t,y] = ode45(@f_gen_rp,tspan,R0);
+[t,y] = ode45(@m_gen_rp,tspan,R0);
 
 % PLOT
 plot(t,y(:,1)/R0(1))
