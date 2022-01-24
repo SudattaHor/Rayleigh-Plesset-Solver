@@ -1,4 +1,5 @@
 # Solver for General Rayleigh-Plesset Equation
+Solving the general Rayleigh-Plesset Equation using ODE45 in MATLAB.
 
 ## Setup
 
