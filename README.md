@@ -1,5 +1,7 @@
 # Solver for General Rayleigh-Plesset Equation
 
+Solving the general Rayleigh-Plesset Equation using ODE45 in MATLAB.
+
 ## Setup
 
 Consider a gas-filled bubble in an infinite domain of liquid. There is no mass transfer
