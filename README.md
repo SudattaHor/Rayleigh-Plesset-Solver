@@ -47,8 +47,8 @@ pressure is *p*<sub>*V*</sub>.
 
 ## Bubble Contents
 
-Assuming that the bubble contains some gas with partial pressure *p*<sub>*G*</sub><sub>0</sub> 
-at radius *R*<sub>0</sub> and temperature *T*<sub>∞</sub>.
+The bubble contains some gas with partial pressure *p*<sub>*G*</sub><sub>0</sub> 
+at radius *R*<sub>0</sub> and temperature *T*<sub>∞</sub> and contains vapor with pressure *p*<sub>v</sub>.
 The pressure inside the bubble is given by
 
 <img src="https://latex.codecogs.com/png.image?\dpi{200}&space;\bg_white&space;p_B(t)&space;=&space;p_V(T_B)&space;&plus;&space;p_{G_0}\left(\frac{T_B}{T_{\infty}}\right)\left(\frac{R_0}{R}\right)^3&space;" title="\bg_white p_B(t) = p_V(T_B) + p_{G_0}\left(\frac{T_B}{T_{\infty}}\right)\left(\frac{R_0}{R}\right)^3 " />
