@@ -50,10 +50,11 @@ $$ -->
 <div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?f_1%20(R%2C%20%5Cdot%7BR%7D)%20%3D%20%5Cdot%7BR%7D%0D"></div>
 
 <!-- $$
-f_2(R, \dot{R}) = \frac{p_B - p_{\infty}}{\rho_L} - \frac{3}{2} \frac{\dot{R}^2}{R} - \frac{4\nu_L \dot{R}}{R^2} - \frac{2S}{\rho_L R}
+f_2(R, \dot{R}) = \frac{p_B - p_{\infty}}{R \rho_L} - \frac{3}{2} \frac{\dot{R}^2}{R} - \frac{4\nu_L \dot{R}}{R^2} - \frac{2S}{R^2 \rho_L}
 $$ --> 
 
-<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?f_2(R%2C%20%5Cdot%7BR%7D)%20%3D%20%5Cfrac%7Bp_B%20-%20p_%7B%5Cinfty%7D%7D%7B%5Crho_L%7D%20-%20%5Cfrac%7B3%7D%7B2%7D%20%5Cfrac%7B%5Cdot%7BR%7D%5E2%7D%7BR%7D%20-%20%5Cfrac%7B4%5Cnu_L%20%5Cdot%7BR%7D%7D%7BR%5E2%7D%20-%20%5Cfrac%7B2S%7D%7B%5Crho_L%20R%7D%0D"></div>
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?f_2(R%2C%20%5Cdot%7BR%7D)%20%3D%20%5Cfrac%7Bp_B%20-%20p_%7B%5Cinfty%7D%7D%7BR%20%5Crho_L%7D%20-%20%5Cfrac%7B3%7D%7B2%7D%20%5Cfrac%7B%5Cdot%7BR%7D%5E2%7D%7BR%7D%20-%20%5Cfrac%7B4%5Cnu_L%20%5Cdot%7BR%7D%7D%7BR%5E2%7D%20-%20%5Cfrac%7B2S%7D%7BR%5E2%20%5Crho_L%7D%0D"></div>
+
 
 
 ## Bubble Contents
