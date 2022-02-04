@@ -13,7 +13,7 @@ t_w = 1E-5;        % time window
 
 % INPUT VALUES
 R0 = [2.4E-03; 0];  % initial condition
-t_f = 1.0E-3;            % final time
+t_f = 5.0E-4;            % final time
 phi = 0;            % phase shift of gaussian waveform
 
 % VECTOR FOR CONSTANTS
@@ -36,8 +36,8 @@ tspan = [0, t_f];
 [t,y] = ode45(@(t,r) m_gen_rp(t,r,constants),tspan,R0);
 
 % PLOT
-t_c = 0.915*R0(1) * sqrt(rho_L/(f_p_inf(t, constants)-p_vTb));
+t_c = 0.915*R0(1) * sqrt(rho_L/(f_p_inf(t, constants)-p_vTb)); % appx. time for cavitation
 plot(t/t_c,y(:,1)/R0(1), 'Color', 'Blue')
-title('Figure 4')
+title('Figure 5')
 ylabel('$R/R_0$','Interpreter','latex')
-xlabel('Time (sec)','Interpreter','latex')
+xlabel('Dimensionless Time ($t/t_c$)','Interpreter','latex')
