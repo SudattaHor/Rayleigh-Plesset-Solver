@@ -9,5 +9,5 @@ function pressure = f_p_inf(t, constants)
     phi = constants(11);
     % EVALUATE
     % pressure = p_inf0 * (1- A.*exp((phi-t)./t_w).^2);
-    pressure = 10*p_atm;
+    pressure = 100*p_atm;
 end
