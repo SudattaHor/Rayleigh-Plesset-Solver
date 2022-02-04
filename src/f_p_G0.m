@@ -3,6 +3,7 @@ function p_G0 = f_p_G0(constants)
     S = constants(3);
     R_0 = constants(6);
     p_vTb = constants(4);
-    p_G0 = ((2*S)/R_0) + f_p_inf(0, constants) - p_vTb;
+    p_inf0 = constants(8);
+    p_G0 = ((2*S)/R_0) + p_inf0 - p_vTb;
 end
 
