@@ -33,11 +33,10 @@ constants(5) = f_p_G0(constants);
 
 % COMPUTATION
 tspan = [0, t_f];   
-[t,y] = ode45(@(t,r) m_gen_rp(t,r,constants),tspan,R0);
+[t,y] = ode45(@(t,r) m_buckling_rp(t,r,constants),tspan,R0);
 
 % PLOT
-t_c = 0.915*R0(1) * sqrt(rho_L/(f_p_inf(t, constants)-p_vTb)); % appx. time for cavitation
-plot(t/t_c,y(:,1)/R0(1), 'Color', 'Blue')
-title('Figure 6')
-ylabel('$R/R_0$','Interpreter','latex')
-xlabel('Dimensionless Time ($t/t_c$)','Interpreter','latex')
+plot(t/t_c,y(:,1), 'Color', 'Blue')
+title('')
+ylabel('R','Interpreter','latex')
+xlabel('Time','Interpreter','latex')
