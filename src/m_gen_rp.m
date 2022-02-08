@@ -17,12 +17,12 @@ function drdt = m_gen_rp(t, r, constants)
     p_inf = f_p_inf(t, constants);
     % TERMS for f_2
     a_0 = (p_B - p_inf) / (R * rho_L);
-    a_1 = (3 * Rprime^2) / (2 * R);
-    a_2 = (4 * nu_L * Rprime) / R^2;
-    a_3 = (2 * S) / (rho_L * R^2);
+    a_1 = -(3 * Rprime^2) / (2 * R);
+    a_2 = -(4 * nu_L * Rprime) / R^2;
+    a_3 = -(2 * S) / (rho_L * R^2);
     % COMPONENTS
-    f_1 = r(2);
-    f_2 = a_0 - a_1 - a_2 - a_3;
+    f_1 = Rprime;
+    f_2 = a_0 + a_1 + a_2 + a_3;
     % SOLUTION
     drdt = [f_1; f_2];
 end
