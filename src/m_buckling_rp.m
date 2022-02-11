@@ -16,6 +16,7 @@ function drdt = m_buckling_rp(t, r, constants)
     P0 = constants(4);
     mu = constants(5);
     kappa_s = constants(6);
+    R0 = constants(12);
     % TERMS for f_2
     b1 = P0 + (2 * f_sigma(R0, constants) / R0);
     b2 = (R / R0)^(-3*kappa);
