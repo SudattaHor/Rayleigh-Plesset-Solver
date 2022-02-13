@@ -1,8 +1,8 @@
 function pressure = f_p_ac(t, constants)
     % Calculates P_ac(t)
     % UNPACK
-    p_atm = constants(7);
+    P0 = constants(4);
     % EVALUATE
-    pressure = 10*p_atm + t*0;
+    pressure = 10*P0 + t*0;
 end
 

@@ -1,22 +1,21 @@
 clear;
 addpath(strcat(pwd,'/src'));
 
-% CONSTANTS
-kappa = 1.4;    % constant for gas
-c = 1;
-rho_L = 1e3;    % liquid density
-P0 = 1;
-mu = 1; % surrounding current viscosity
-kappa_s = 1;
-p_atm = 1e5;    % atmospheric pressure
-R_buckling = 1;
-R_break_up = 1;
-kai = 1;
-S_water = 1;
-
 % INPUT VALUES
 R0 = [2.4E-03; 0];
 t_f = 1.5E-4;
+
+% CONSTANTS
+kappa = 1.4;            % ratio of specific heats - adiabatic
+c = 1.5e3;              % speed of sound in water
+rho_L = 1e3;            % liquid density
+P0 = 101325;            % ambient pressure / atmospheric pressure
+mu = 1;                 % surrounding liquid viscosity
+kappa_s = 1.5e-10;      % shell viscosity
+kai = 2e-1;             % elastic modulus
+S_water = 7.3e-2;       % water surface tension
+S_break_up = 1.3e-1;    % break-up tension
+R_buckling = R0(1);        % radius for buckling
 
 % VECTOR FOR CONSTANTS
 constants = [];
@@ -26,13 +25,14 @@ constants(3) = rho_L;
 constants(4) = P0;
 constants(5) = mu;
 constants(6) = kappa_s;
-constants(7) = p_atm;
-constants(8) = R_buckling;
-constants(9) = R_break_up;
+constants(7) = R_buckling;
 constants(10) = kai;
 constants(11) = S_water;
 constants(12) = R0(1);
 constants(13) = R0(2);
+constants(14) = S_break_up;
+constants(8) = f_Rbreak_up(constants);
+constants(9) = f_Rruptured(constants);
 
 % COMPUTATION
 tspan = [0, t_f];   
