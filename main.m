@@ -15,7 +15,7 @@ kappa_s = 1.5e-10;      % shell viscosity
 kai = 2e-1;             % elastic modulus
 S_water = 7.3e-2;       % water surface tension
 S_break_up = 1.3e-1;    % break-up tension
-R_buckling = R0(1);        % radius for buckling
+R_buckling = R0(1);     % radius for buckling
 
 % VECTOR FOR CONSTANTS
 constants = [];
