@@ -2,12 +2,12 @@ clear;
 addpath(strcat(pwd,'/src'));
 
 % INPUT VALUES
-R0 = [0.975E-6; 0];
+R0 = [0.975e-6; 0];
 t_f = 2e-6;
 
 % CONSTANTS
 kappa = 1.4;            % ratio of specific heats - adiabatic
-c = 1.48e3;              % speed of sound in water
+c = 1.48e3;             % speed of sound in water
 rho_L = 1e3;            % liquid density
 P0 = 101325;            % ambient pressure / atmospheric pressure
 mu = 1;                 % surrounding liquid viscosity
@@ -16,6 +16,9 @@ kai = 2e-1;             % elastic modulus
 S_water = 7.3e-2;       % water surface tension
 S_break_up = 1.3e-1;    % break-up tension
 R_buckling = R0(1);     % radius for buckling
+ac_shift = 0.15e-6;     % phase shift for pressure deviation
+ac_freq = 2.9e6;        % freq for pressure deviation
+ac_amp = 1.3e5;         % amplitude for pressure deviation
 
 % VECTOR FOR CONSTANTS
 constants = [];
@@ -33,6 +36,9 @@ constants(13) = R0(2);
 constants(14) = S_break_up;
 constants(8) = f_Rbreak_up(constants);
 constants(9) = f_Rruptured(constants);
+constants(15) = ac_amp;
+constants(16) = ac_freq;
+constants(17) = ac_shift;
 
 % RUPTURED
 global ruptured;
