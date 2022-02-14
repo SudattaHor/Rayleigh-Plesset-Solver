@@ -1,13 +1,13 @@
-function output = f_sigma(R, constants)
+function S = f_sigma(R, constants)
     % solves for sigma(r)
     % output is [surface tension, ruptured]
     % UNPACK
+    global ruptured;
     R_buckling = constants(7);
     R_break_up = constants(8);
     R_ruptured = constants(9);
     kai = constants(10);
     S_water = constants(11);
-    ruptured = constants(15);
     % EVALUATE
     if ruptured
         S = S_water;
@@ -23,6 +23,5 @@ function output = f_sigma(R, constants)
             ruptured = true;
         end
     end
-    output = [S, ruptured];
 end
 

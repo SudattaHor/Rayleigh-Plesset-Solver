@@ -2,12 +2,12 @@ clear;
 addpath(strcat(pwd,'/src'));
 
 % INPUT VALUES
-R0 = [2.4E-03; 0];
-t_f = 1.5E-4;
+R0 = [0.975E-6; 0];
+t_f = 2e-6;
 
 % CONSTANTS
 kappa = 1.4;            % ratio of specific heats - adiabatic
-c = 1.5e3;              % speed of sound in water
+c = 1.48e3;              % speed of sound in water
 rho_L = 1e3;            % liquid density
 P0 = 101325;            % ambient pressure / atmospheric pressure
 mu = 1;                 % surrounding liquid viscosity
@@ -33,7 +33,10 @@ constants(13) = R0(2);
 constants(14) = S_break_up;
 constants(8) = f_Rbreak_up(constants);
 constants(9) = f_Rruptured(constants);
-constants(15) = false;  % true if shell ruptured
+
+% RUPTURED
+global ruptured;
+ruptured = false;       % true if shell has ruptured
 
 % COMPUTATION
 tspan = [0, t_f];   
