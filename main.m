@@ -33,6 +33,7 @@ constants(13) = R0(2);
 constants(14) = S_break_up;
 constants(8) = f_Rbreak_up(constants);
 constants(9) = f_Rruptured(constants);
+constants(15) = false;  % true if shell ruptured
 
 % COMPUTATION
 tspan = [0, t_f];   
