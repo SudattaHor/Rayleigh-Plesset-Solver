@@ -28,7 +28,7 @@ function drdt = m_buckling_rp(t, r, constants)
     a1 = -2 * sigmaR / (rho_L * R^2);
     a2 = -4 * mu * Rprime / (rho_L * R^2);
     a3 = -4 * kappa_s * Rprime / (rho_L * R^3);
-    a4 = -f_p(t, constants) / (rho_L * R);
+    a4 = -m_p(t, constants) / (rho_L * R);
     a5 = -3 * Rprime^2 / (2*R);
     % COMPONENTS
     f_1 = Rprime;
