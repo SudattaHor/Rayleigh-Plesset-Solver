@@ -1,55 +1,33 @@
-clear;
+clear; close all; clc;
 addpath(strcat(pwd,'/src'));
-
-% INPUT VALUES
-R0 = [0.975e-6; 0];
-t_f = 2e-6;
-
-% CONSTANTS
-kappa = 1.4;            % ratio of specific heats - adiabatic
-c = 1.48e3;             % speed of sound in water
-rho_L = 1e3;            % liquid density
-P0 = 101325;            % ambient pressure / atmospheric pressure
-mu = 1;                 % surrounding liquid viscosity
-kappa_s = 1.5e-10;      % shell viscosity
-kai = 2e-1;             % elastic modulus
-S_water = 7.3e-2;       % water surface tension
-S_break_up = 1.3e-1;    % break-up tension
-R_buckling = R0(1);     % radius for buckling
-ac_shift = 0.15e-6;     % phase shift for pressure deviation
-ac_freq = 2.9e6;        % freq for pressure deviation
-ac_amp = 1.3e5;         % amplitude for pressure deviation
-
-% VECTOR FOR CONSTANTS
-constants = [];
-constants(1) = kappa;
-constants(2) = c;
-constants(3) = rho_L;
-constants(4) = P0;
-constants(5) = mu;
-constants(6) = kappa_s;
-constants(7) = R_buckling;
-constants(10) = kai;
-constants(11) = S_water;
-constants(12) = R0(1);
-constants(13) = R0(2);
-constants(14) = S_break_up;
-constants(8) = f_Rbreak_up(constants);
-constants(9) = f_Rruptured(constants);
-constants(15) = ac_amp;
-constants(16) = ac_freq;
-constants(17) = ac_shift;
 
 % RUPTURED
 global ruptured;
 ruptured = false;       % true if shell has ruptured
 
-% COMPUTATION
-tspan = [0, t_f];   
-[t,y] = ode45(@(t,r) m_buckling_rp(t,r,constants),tspan,R0);
+% INPUT VALUES
+R0 = [1e-6; 0];
+t_f = 1e-6;
 
-% PLOT
-plot(t,y(:,1), 'Color', 'Blue')
+% SET UP FIGURE
+figure(1)
 title('')
 ylabel('R','Interpreter','latex')
 xlabel('Time','Interpreter','latex')
+
+% CASE FOR PIECEWISE SURFACE TENSION
+% COMPUTATION
+tspan = [0, t_f];   
+[t,y1] = ode45(@(t,r) m_buckling_rp(t,r,f_call_parameters(R0, true)),tspan,R0);
+% PLOT
+plot(t,y1(:,1), 'Color', 'Blue')
+hold on;
+
+% CASE FOR CONSTANT SURFACE TENSION
+tspan = [0, t_f];   
+[t,y2] = ode45(@(t,r) m_buckling_rp(t,r,f_call_parameters(R0, false)),tspan,R0);
+% PLOT
+plot(t,y2(:,1), 'Color', 'Red')
+
+legend('Piecewise Surface Tension', 'Constant Surface Tension')
+hold off;
