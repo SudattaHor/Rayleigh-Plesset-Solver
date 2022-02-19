@@ -1,6 +1,6 @@
 # Description of Figures
 
-## fig1-4
+## Prelim
 
 - kappa = 1.4;           
 - c = 1.48e3;             
@@ -28,3 +28,20 @@ p(t) = atm
 ### fig4
 
 p(t) = 0.5atm
+
+
+## Comparing Piecewise Surface Tension vs. Constant Surface Tension
+
+Piecewise Surface Tension - given in Marmmotant
+Constant Surface Tension - set to surface tension of water
+
+- ac_freq = 2.9e6        
+- ac_amp = 1.3e5  
+
+### fig5
+
+p_(t) = P0 + ac_amp * sin(2 * pi * ac_freq * (t - ac_shift))
+
+### fig6
+
+R_buckling =  0.8 * R0(1)

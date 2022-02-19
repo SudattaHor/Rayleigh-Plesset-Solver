@@ -18,8 +18,8 @@ function drdt = m_buckling_rp(t, r, constants)
     kappa_s = constants(6);
     R0 = constants(12);
     % COMPUTE SURFACE TENSION
-    sigmaR0 = f_sigma(R0, constants);
-    sigmaR = f_sigma(R, constants);
+    sigmaR0 = f_sigma(R0, t, constants);
+    sigmaR = f_sigma(R, t, constants);
     % TERMS for f_2
     b1 = P0 + (2 * sigmaR0 / R0);
     b2 = (R / R0)^(-3*kappa);

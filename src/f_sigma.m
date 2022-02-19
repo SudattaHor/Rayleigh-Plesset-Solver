@@ -1,4 +1,4 @@
-function S = f_sigma(R, constants)
+function S = f_sigma(R, t, constants)
     % solves for sigma(r)
     % output is [surface tension, ruptured]
     % UNPACK
