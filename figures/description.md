@@ -44,4 +44,6 @@ p_(t) = P0 + ac_amp * sin(2 * pi * ac_freq * (t - ac_shift))
 
 ### fig6
 
+Labeled point is point of rupture
+
 R_buckling =  0.8 * R0(1)
