@@ -1,4 +1,4 @@
-function S = f_sigma(R, t, constants)
+function S = f_sigma(R, constants)
     % solves for sigma(r)
     % output is [surface tension, ruptured]
     % UNPACK
@@ -9,7 +9,7 @@ function S = f_sigma(R, t, constants)
     kai = constants(10);
     S_water = constants(11);
     Stoggle = constants(18);
-    % CONSTANT SURFACE TENSION
+    % TOGGLE CONSTANT SURFACE TENSION
     if Stoggle
         S = S_water;
         return
