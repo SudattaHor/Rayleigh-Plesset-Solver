@@ -1,10 +1,9 @@
-function pressure = f_p_ac(t, constants)
+function pressure = f_p_ac(t, app_press, constants)
     % Computes driving acoustical pressure
     % UNPACK
     ac_amp = constants(15);
     ac_freq = constants(16);
     ac_shift = constants(17);
-    app_press = constants(19);
     % COMPUTE
     switch app_press
         case 'sine'

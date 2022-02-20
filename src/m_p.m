@@ -15,7 +15,7 @@ function pressure = m_p(t, app_press, constants)
         case '0.1atm'
             pressure = 0.1*P0;
         otherwise
-            pressure = P0 + f_p_ac(t, constants);
+            pressure = P0 + f_p_ac(t, app_press, constants);
     end
 end
 
