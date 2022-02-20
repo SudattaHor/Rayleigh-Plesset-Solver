@@ -1,17 +1,15 @@
 clear; close all; clc;
 addpath(strcat(pwd, '/src'));
-addpath(strcat(pwd,'/general_src'));
-addpath(strcat(pwd,'/buckling_src'));
  
 % RUPTURED
 global ruptured;
 ruptured = false;       % true if shell has ruptured
 
 % INPUT VALUES
-R0 = [2.4e-3; 0];
-t_f = 1.5e-4;
-app_press = '1atm';
-buckling = false;
+R0 = [1e-6; 0];
+t_f = 1e-6;
+app_press = 'sine';
+buckling = true;
 
 % SET UP FIGURE
 figure(1)
