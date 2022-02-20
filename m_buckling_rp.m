@@ -1,4 +1,4 @@
-function drdt = m_buckling_rp(t, r, app_press, constants)
+function drdt = m_buckling_rp(t, r, app_press, params)
     % Evaluates the Rayleigh-Plesset equation
     % INPUTS:
     %   t - the current time
@@ -10,16 +10,16 @@ function drdt = m_buckling_rp(t, r, app_press, constants)
     % UNPACK
     R = r(1);
     Rprime = r(2);
-    kappa = constants(1);
-    c = constants(2);
-    rho_L = constants(3);
-    P0 = constants(4);
-    mu = constants(5);
-    kappa_s = constants(6);
-    R0 = constants(12);
+    kappa = params(2);
+    c = params(6);
+    rho_L = params(3);
+    P0 = params(1);
+    mu = params(5);
+    kappa_s = params(8);
+    R0 = params(13);
     % COMPUTE SURFACE TENSION
-    sigmaR0 = f_sigma(R0, constants);
-    sigmaR = f_sigma(R, constants);
+    sigmaR0 = f_sigma(R0, params);
+    sigmaR = f_sigma(R, params);
     % TERMS for f_2
     b1 = P0 + (2 * sigmaR0 / R0);
     b2 = (R / R0)^(-3*kappa);
@@ -28,7 +28,7 @@ function drdt = m_buckling_rp(t, r, app_press, constants)
     a1 = -2 * sigmaR / (rho_L * R^2);
     a2 = -4 * mu * Rprime / (rho_L * R^2);
     a3 = -4 * kappa_s * Rprime / (rho_L * R^3);
-    a4 = -m_p(t, app_press, constants) / (rho_L * R);
+    a4 = -m_p(t, app_press, params) / (rho_L * R);
     a5 = -3 * Rprime^2 / (2*R);
     % COMPONENTS
     f_1 = Rprime;

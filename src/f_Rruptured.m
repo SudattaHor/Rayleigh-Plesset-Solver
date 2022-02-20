@@ -1,9 +1,9 @@
-function R_ruptured = f_Rruptured(constants)
+function R_ruptured = f_Rruptured(params)
     % computes R_ruptured
     % UNPACK
-    R_buckling = constants(7);
-    S_water = constants(11);
-    kai = constants(10);
+    R_buckling = params(12);
+    S_water = params(7);
+    kai = params(9);
     % COMPUTE
     R_ruptured = R_buckling * sqrt(1 + S_water / kai);
 end

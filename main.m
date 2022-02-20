@@ -6,10 +6,10 @@ global ruptured;
 ruptured = false;       % true if shell has ruptured
 
 % INPUT VALUES
-R0 = [1e-6; 0];
-t_f = 1e-6;
-app_press = 'sine';
-buckling = true;
+R0 = [2.4e-3; 0];
+t_f = 1e-3;
+app_press = '1atm';
+buckling = false;
 
 % SET UP FIGURE
 figure(1)

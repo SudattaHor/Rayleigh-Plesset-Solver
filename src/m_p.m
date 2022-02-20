@@ -1,7 +1,7 @@
-function pressure = m_p(t, app_press, constants)
+function pressure = m_p(t, app_press, params)
     % Calculates pressure of liquid
     % UNPACK
-    P0 = constants(4);
+    P0 = params(1);
     % EVALUATE
     switch app_press
         case '1atm'
@@ -15,16 +15,16 @@ function pressure = m_p(t, app_press, constants)
         case '0.1atm'
             pressure = 0.1*P0;
         otherwise
-            pressure = P0 + f_p_ac(t, app_press, constants);
+            pressure = P0 + f_p_ac(t, app_press, params);
     end
 end
 
-function pressure = f_p_ac(t, app_press, constants)
+function pressure = f_p_ac(t, app_press, params)
     % Computes driving acoustical pressure
     % UNPACK
-    ac_amp = constants(15);
-    ac_freq = constants(16);
-    ac_shift = constants(17);
+    ac_amp = params(17);
+    ac_freq = params(16);
+    ac_shift = params(15);
     % COMPUTE
     switch app_press
         case 'sine'
