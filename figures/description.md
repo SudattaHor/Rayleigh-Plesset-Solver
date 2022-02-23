@@ -52,3 +52,9 @@ R_buckling =  0.8 * R0(1)
 
 --
 
+## Comparing General vs. Buckling Case
+
+Comparing the general Rayleigh Plesset equation with the Rayleigh Plesset equation accounting for buckling.
+
+### fig8
+
