@@ -1,4 +1,4 @@
-function drdt = m_gen_rp(t, r, constants)
+function drdt = m_gen_rp(t, r,app_press,params)
     % Evaluates the general Rayleigh-Plesset equation
     % INPUTS:
     %   t - the current time
@@ -8,13 +8,13 @@ function drdt = m_gen_rp(t, r, constants)
     %   drdt - a two-dimensional vector [f_1; f_2] where
     %          f_1 = r' and f_2 = r''
     % UNPACK
-    rho_L = constants(1);
-    nu_L = constants(2);
-    S = constants(3);
+    rho_L = params(3);
+    nu_L = params(4);
+    S = params(7);
     R = r(1);
     Rprime = r(2);
-    p_B = f_p_B(r, constants);
-    p_inf = f_p_inf(t, constants);
+    p_B = f_p_B(r, params);
+    p_inf = m_p(t,app_press,params);
     % TERMS for f_2
     a_0 = (p_B - p_inf) / (R * rho_L);
     a_1 = -(3 * Rprime^2) / (2 * R);
