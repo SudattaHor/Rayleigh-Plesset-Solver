@@ -21,13 +21,13 @@ param1 = f_call_parameters(R0, true);
 plot(t,y1(:,1), 'Color', 'Blue')
 hold on;
 
-% % CASE FOR GENERAL
-% tspan = [0, t_f];
-% param2 = f_call_parameters(R0, true);
-% [t, y2] = ode45(@(t,r) m_gen_rp(t,r,app_press,param2),tspan,R0);
-% 
-% % PLOT
-% plot(t,y2(:,1), 'Color', 'Red')
+% CASE FOR GENERAL
+tspan = [0, t_f];
+param2 = f_call_parameters(R0, true);
+[t, y2] = ode45(@(t,r) m_gen_rp(t,r,app_press,param2),tspan,R0);
+
+% PLOT
+plot(t,y2(:,1), 'Color', 'Red')
 
 title(strcat('Applied Pressure: ', app_press))
 ylabel('R (m)','Interpreter','latex')
