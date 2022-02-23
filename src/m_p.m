@@ -6,6 +6,8 @@ function pressure = m_p(t, app_press, params)
     switch app_press
         case '1atm'
             pressure = P0;
+        case '2atm'
+            pressure = 2*P0;
         case '10atm'
             pressure = 10*P0;
         case '100atm'
