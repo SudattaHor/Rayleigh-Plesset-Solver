@@ -16,10 +16,10 @@ function params = f_call_parameters(R, Stoggle)
     R0 = R(1);
     R0prime = R(2);
     % BUCKLING / BREAKUP
-    S_break_up = 1.3e-1;    % break-up tension
+    S_break_up = 2;    % break-up tension
     R_buckling = R0;     % radius for buckling
     % SINE WAVE
-    ac_shift = 0.15e-6;     % phase shift for pressure deviation
+    ac_shift = 0.16e-6;     % phase shift for pressure deviation
     ac_freq = 2.9e6;        % freq for pressure deviation
     ac_amp = 1.3e5;         % amplitude for pressure deviation
 
