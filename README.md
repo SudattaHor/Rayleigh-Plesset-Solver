@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Solver for General Rayleigh-Plesset Equation
 
 Solving the general Rayleigh-Plesset Equation using ODE45 in MATLAB.
@@ -85,3 +86,17 @@ For the pressure at infinity we use a Gaussian waveform:
 <img src="https://latex.codecogs.com/png.image?\dpi{200}&space;\bg_white&space;p_{\infty&space;0}&space;(1&space;-&space;A\exp(-(t/t_w)^2))&space;" title="\bg_white p_{\infty 0} (1 - A\exp(-(t/t_w)^2)) " />
 
 where *p*<sub>∞0</sub> and *A* are constants and *t*<sub>*w*</sub> is the time scale.
+=======
+# Solver for Rayleigh-Plesset Equation
+Accounting for surface tension and buckling.
+
+## Status
+
+Currently merging the general and buckling solvers into one branch.
+
+## Reference
+
+2005 Marmmotant - "A model for large amplitude oscillations of coated bubbles accounting for buckling and rupture"
+
+1995 Christoper E. Brennen - "Cavitation and Bubble Dynamics"
+>>>>>>> 788829547e9614b3c4197972177dfb7c49dca8f8
