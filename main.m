@@ -32,7 +32,7 @@ plot(t,y2(:,1), 'Color', 'Red')
 title(strcat('Applied Pressure: ', app_press))
 ylabel('R (m)','Interpreter','latex')
 xlabel('Time (s)','Interpreter','latex')
-% legend('With Buckling', 'General')
+legend('With Buckling', 'General')
 hold off;
 
 %#ok<*UNRCH>
