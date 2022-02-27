@@ -1,5 +1,6 @@
 function drdt = m_gen_rp(t, r,app_press,params)
-    % Evaluates the general Rayleigh-Plesset equation
+    % Evaluates the Rayleigh-Plesset equation without shell
+    % according to eq. 2.10 in Brennen
     % INPUTS:
     %   t - the current time
     %   r - a two-dimensional vector [r; r'] representing
@@ -7,6 +8,7 @@ function drdt = m_gen_rp(t, r,app_press,params)
     % OUTPUTS:
     %   drdt - a two-dimensional vector [f_1; f_2] where
     %          f_1 = r' and f_2 = r''
+    
     % UNPACK
     rho_L = params(3);
     nu_L = params(4);

@@ -1,5 +1,6 @@
 function drdt = m_buckling_rp(t, r, app_press, params)
-    % Evaluates the Rayleigh-Plesset equation
+    % Evaluates the Rayleigh-Plesset equation with shell
+    % according to eq. 3 in 2005 Marmottant
     % INPUTS:
     %   t - the current time
     %   r - a two-dimensional vector [r; r'] representing
@@ -7,6 +8,7 @@ function drdt = m_buckling_rp(t, r, app_press, params)
     % OUTPUTS:
     %   drdt - a two-dimensional vector [f_1; f_2] where
     %          f_1 = r' and f_2 = r''
+    
     % UNPACK
     R = r(1);
     Rprime = r(2);
@@ -16,7 +18,7 @@ function drdt = m_buckling_rp(t, r, app_press, params)
     P0 = params(1);
     mu = params(5);
     kappa_s = params(8);
-    R0 = params(13);
+    R0 = params(15);
     % COMPUTE SURFACE TENSION
     sigmaR0 = f_sigma(R0, params);
     sigmaR = f_sigma(R, params);

@@ -1,5 +1,6 @@
 function pressure = m_p(t, app_press, params)
-    % Calculates pressure of liquid
+    % Calculates the applied pressure to the bubble
+
     % UNPACK
     P0 = params(1);
     % EVALUATE
@@ -23,10 +24,11 @@ end
 
 function pressure = f_p_ac(t, app_press, params)
     % Computes driving acoustical pressure
+    
     % UNPACK
-    ac_amp = params(17);
-    ac_freq = params(16);
-    ac_shift = params(15);
+    ac_amp = params(19);
+    ac_freq = params(18);
+    ac_shift = params(17);
     % COMPUTE
     switch app_press
         case 'sine'
