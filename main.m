@@ -6,8 +6,8 @@ global ruptured;
 ruptured = false;       % true if shell has ruptured
 
 % INPUT VALUES
-R0 = [0.975e-6; 0];
-t_f = 2.1e-6;
+R0 = [0.975e-3; 0];
+t_f = 2.1e-3;
 app_press = '1atm';
 
 % SET UP FIGURE
