@@ -3,9 +3,9 @@ function S = f_sigma(R, params)
 
     % UNPACK
     global ruptured;
-    R_buckling = params(13);
-    R_break_up = params(14);
-    R_ruptured = params(15);
+    R_buckling = params(12);
+    R_break_up = params(13);
+    R_ruptured = params(14);
     kai = params(9);
     S_water = params(7);
     Stoggle = params(20);

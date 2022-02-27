@@ -6,8 +6,8 @@ global ruptured;
 ruptured = false;       % true if shell has ruptured
 
 % INPUT VALUES
-R0 = [0.975e-3; 0];
-t_f = 2.1e-3;
+R0 = [0.975e-6; 0];
+t_f = 2.1e-6;
 app_press = '1atm';
 
 % SET UP FIGURE
@@ -20,6 +20,7 @@ param1 = f_call_parameters(R0, true, app_press);
 % PLOT
 plot(t,y1(:,1))
 hold on
+% f_plot(t, y1)
 
 % CASE FOR NO SHELL
 tspan = [0, t_f];
