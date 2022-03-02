@@ -8,9 +8,9 @@ function S = f_sigma(R, params)
     R_ruptured = params(14);
     kai = params(9);
     S_water = params(7);
-    Stoggle = params(20);
-    % TOGGLE CONSTANT SURFACE TENSION
-    if Stoggle
+    shell_on = params(21);
+    % TOGGLE SHELL OFF
+    if ~shell_on
         S = S_water;
         return
     end

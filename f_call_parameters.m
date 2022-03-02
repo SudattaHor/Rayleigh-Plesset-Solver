@@ -1,10 +1,7 @@
-function params = f_call_parameters(R, Stoggle, app_press)
+function params = f_call_parameters(R, shell_on, acoustic_correction_on, app_press)
     % Returns a vector containing all parameters
     % INPUTS:
     %   R - the intial radius vector [R0; R0prime]
-    %   Stoggle - true to use constant surface tension
-    %             false to use piecewise surface tension according
-    %               to eq. 4 in 2005 Marmottant
 
     % CONSTANTS
     P0 = 1.01E5;            % atmospheric pressure
@@ -16,19 +13,19 @@ function params = f_call_parameters(R, Stoggle, app_press)
     c = 1.48e3;             % speed of sound in liquid (water)
     % BUBBLE / SHELL
     S_water = 7.3e-02;      % surface tension of bubble
-    kappa_s = 1.5e-10;      % shell viscosity
+    kappa_s = 1.5e-6;      % shell viscosity
     kai = 2e-1;             % elastic modulus
-    p_vTb = 2.3E03;         % vapor pressure in bubble
+    p_vTb = 0;         % vapor pressure in bubble
     % INITIAL BUBBLE
     R0 = R(1);
     R0prime = R(2);
     % BUCKLING / BREAKUP
-    S_break_up = 2;         % break-up tension
-    R_buckling = R0;        % radius for buckling
+    S_break_up = 1.3e-1;         % break-up tension
+    R_buckling = 0.95*R0;        % radius for buckling
     R_break_up = R_turn(R_buckling, S_break_up, kai);
     R_ruptured = R_turn(R_buckling, S_water, kai);
     % SINE WAVE
-    ac_shift = 0.16e-6;     % phase shift for pressure deviation
+    ac_shift = 0;     % phase shift for pressure deviation
     ac_freq = 2.9e6;        % freq for pressure deviation
     ac_amp = 1.3e5;         % amplitude for pressure deviation
 
@@ -53,8 +50,9 @@ function params = f_call_parameters(R, Stoggle, app_press)
     params(17) = ac_shift;
     params(18) = ac_freq;
     params(19) = ac_amp;
-    params(20) = Stoggle;
-    params(21) = cav_time(R0, rho_L, app_press, params);
+    params(20) = P0 * p_constant(app_press);
+    params(21) = shell_on;
+    params(22) = acoustic_correction_on;
 end
 
 function ret = R_turn(R_buckling, S, kai)
@@ -62,11 +60,22 @@ function ret = R_turn(R_buckling, S, kai)
     ret = R_buckling * sqrt(1 + S / kai);
 end
 
-function ret = cav_time(R0, rho_L, app_press, params)
-    % Computes time of cavitation
-    if ~strcmp(app_press(end-2:end), 'atm')
-        ret = 1;
-        return
+function pressure = p_constant(app_press)
+    % Extracts value of pressure, if constant. Else, return 1.
+    switch app_press
+        case '1atm'
+            pressure = 1;
+        case '2atm'
+            pressure = 2;
+        case '10atm'
+            pressure = 10;
+        case '100atm'
+            pressure = 100;
+        case '0.5atm'
+            pressure = 0.5;
+        case '0.1atm'
+            pressure = 0.1;
+        otherwise
+            pressure = 1;
     end
-    ret = 0.915 * R0 * sqrt(rho_L/m_p(0, app_press, params));
 end
