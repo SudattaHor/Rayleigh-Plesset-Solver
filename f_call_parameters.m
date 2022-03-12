@@ -13,7 +13,7 @@ function params = f_call_parameters(R, shell_on, acoustic_correction_on, app_pre
     c = 1.48e3;             % speed of sound in liquid (water)
     % BUBBLE / SHELL
     S_water = 7.3e-02;      % surface tension of bubble
-    kappa_s = 1.5e-6;      % shell viscosity
+    kappa_s = 1.5e-7;      % shell viscosity
     kai = 2e-1;             % elastic modulus
     p_vTb = 0;         % vapor pressure in bubble
     % INITIAL BUBBLE
@@ -25,9 +25,10 @@ function params = f_call_parameters(R, shell_on, acoustic_correction_on, app_pre
     R_break_up = R_turn(R_buckling, S_break_up, kai);
     R_ruptured = R_turn(R_buckling, S_water, kai);
     % SINE WAVE
+    delay = 2e-8;         % time delay for wave to begin
     ac_shift = 0;     % phase shift for pressure deviation
-    ac_freq = 2.9e6;        % freq for pressure deviation
-    ac_amp = 1.3e5;         % amplitude for pressure deviation
+    ac_freq = 3e6;        % freq for pressure deviation
+    ac_amp = -7e5;         % amplitude for pressure deviation
 
     % VECTOR
     params = [];
@@ -53,6 +54,7 @@ function params = f_call_parameters(R, shell_on, acoustic_correction_on, app_pre
     params(20) = P0 * p_constant(app_press);
     params(21) = shell_on;
     params(22) = acoustic_correction_on;
+    params(23) = delay;
 end
 
 function ret = R_turn(R_buckling, S, kai)

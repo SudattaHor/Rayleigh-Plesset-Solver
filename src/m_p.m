@@ -29,7 +29,12 @@ function pressure = f_p_ac(t, app_press, params)
     ac_amp = params(19);
     ac_freq = params(18);
     ac_shift = params(17);
+    delay = params(23);
     % COMPUTE
+    if t < delay
+        pressure = 0;
+        return
+    end
     switch app_press
         case 'sine'
             pressure = ac_amp * sin(2 * pi * ac_freq * (t - ac_shift));
