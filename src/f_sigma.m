@@ -23,9 +23,9 @@ function S = f_sigma(R, params)
     if (R <= R_buckling)
         S = 0;
     elseif (R <= R_break_up)
-        S = kai * ((R/R_buckling)^2 - 1);
+        S = kai * ((R./R_buckling).^2 - 1);
     elseif (R <= R_ruptured)
-        S = kai * ((R/R_break_up)^2 - 1);
+        S = kai * ((R./R_break_up).^2 - 1);
     else
         S = S_water;
         ruptured = true;

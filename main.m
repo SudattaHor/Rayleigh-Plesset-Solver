@@ -1,5 +1,6 @@
 clear; close all; clc;
 addpath(strcat(pwd, '/src'));
+addpath(strcat(pwd, '/data'));
  
 % RUPTURED
 global ruptured;
@@ -30,6 +31,10 @@ data = readmatrix("data\data-fig5-marmottant.csv");
 t = data(:, 1);
 r = data(:, 2);
 f_plot(t, r, param2, dimensionless, '-.', "Simulation Data from Marmottant")
+
+% FIND PRESSURE HIST
+% dataname = "data-fig5-marmottant.csv";
+% press_hist(param2, dataname);
 
 % BUCKLING RADIUS
 % yline(param2(12)/R0(1), 'LineStyle', '-.', 'DisplayName', '$R_{buckling}$')
