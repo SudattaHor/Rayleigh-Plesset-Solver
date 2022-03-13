@@ -1,6 +1,7 @@
 function pressure = m_p(t, app_press, params)
     % Calculates the applied pressure to the bubble
 
+    addpath(strcat(pwd, '/data'));
     % UNPACK
     P0 = params(1);
     % EVALUATE
@@ -17,6 +18,8 @@ function pressure = m_p(t, app_press, params)
             pressure = 0.5*P0;
         case '0.1atm'
             pressure = 0.1*P0;
+        case 'from_data'
+            pressure = P0; % TODO !
         otherwise
             pressure = P0 + f_p_ac(t, app_press, params);
     end
@@ -42,3 +45,4 @@ function pressure = f_p_ac(t, app_press, params)
             pressure = 0;
     end
 end
+
