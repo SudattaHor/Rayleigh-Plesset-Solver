@@ -1,4 +1,4 @@
-function drdt = m_rayleigh_plesset(t, r, app_press, params)
+function drdt = m_rayleigh_plesset(t, r, params)
     % Evaluates the Rayeleigh Plesset equation.
     % INPUTS:
     %   t - the current time
@@ -11,16 +11,16 @@ function drdt = m_rayleigh_plesset(t, r, app_press, params)
     % UNPACK
     R = r(1);
     Rprime = r(2);
-    kappa = params(2);
-    c = params(6);
-    rho_L = params(3);
-    P0 = params(1);
-    p_vTb = params(10);
-    mu = params(5);
-    kappa_s = params(8);
-    R0 = params(15);
-    shell_on = params(21);
-    acoustic_correction_on = params(22);
+    kappa = params.kappa;
+    c = params.c;
+    rho_L = params.rho_L;
+    P0 = params.P0;
+    p_vTb = params.p_vTb;
+    mu = params.mu_L;
+    kappa_s = params.kappa_s;
+    R0 = params.R0;
+    shell_on = params.shell_on;
+    acoustic_correction_on = params.acoustic_correction_on;
     % COMPUTE SURFACE TENSION
     sigmaR0 = f_sigma(R0, params);
     sigmaR = f_sigma(R, params);
@@ -39,7 +39,7 @@ function drdt = m_rayleigh_plesset(t, r, app_press, params)
     a0 = correction * (p_vTb + p_G0 * (R0/R)^(3*kappa)) / (rho_L * R);
     a1 = -2 * sigmaR / (rho_L * R^2);
     a2 = -4 * mu * Rprime / (rho_L * R^2);
-    a4 = -m_p(t, app_press, params) / (rho_L * R);
+    a4 = -m_p(t, params) / (rho_L * R);
     a5 = -3 * Rprime^2 / (2*R);
     % COMPONENTS
     f_1 = Rprime;

@@ -1,7 +1,7 @@
 function f_plot(t, y, params, dimensionless, style, dispname)
     % Plots function
     if dimensionless
-        R0 = params(15);
+        R0 = params.R0;
         t_c = cav_time(params);
         t = t / t_c;
         y(:,1) = y(:,1) / R0;
@@ -12,8 +12,8 @@ end
 
 function ret = cav_time(params)
     % Computes time of cavitation
-    app_press  = params(20);
-    R0 = params(15);
-    rho_L = params(3);
-    ret = 0.915 * R0 * sqrt(rho_L/app_press);
+    p_const  = params.p_const;
+    R0 = params.R0;
+    rho_L = params.rho_L;
+    ret = 0.915 * R0 * sqrt(rho_L/p_const);
 end

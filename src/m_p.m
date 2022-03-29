@@ -1,11 +1,11 @@
-function pressure = m_p(t, app_press, params)
+function pressure = m_p(t, params)
     % Calculates the applied pressure to the bubble
 
     addpath(strcat(pwd, '/data'));
     % UNPACK
-    P0 = params(1);
+    P0 = params.P0;
     % EVALUATE
-    switch app_press
+    switch params.app_press
         case '1atm'
             pressure = P0;
         case '2atm'
@@ -18,8 +18,9 @@ function pressure = m_p(t, app_press, params)
             pressure = 0.5*P0;
         case '0.1atm'
             pressure = 0.1*P0;
-        case 'from_data'
-            pressure = P0; % TODO !
+        case 'from-data'
+            load('press-from-data.mat', 'press_form');
+            pressure = ppval(press_form, t);
         otherwise
             pressure = P0 + f_p_ac(t, app_press, params);
     end
@@ -29,10 +30,10 @@ function pressure = f_p_ac(t, app_press, params)
     % Computes driving acoustical pressure
     
     % UNPACK
-    ac_amp = params(19);
-    ac_freq = params(18);
-    ac_shift = params(17);
-    delay = params(23);
+    ac_amp = params.ac_amp;
+    ac_freq = params.ac_freq;
+    ac_shift = params.ac_shift;
+    delay = params.delay;
     % COMPUTE
     if t < delay
         pressure = 0;

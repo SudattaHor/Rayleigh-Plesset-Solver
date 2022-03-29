@@ -1,4 +1,15 @@
-function press_hist(params, dataname)
+% INPUT VALUES
+R0 = [0.975e-6; 0];
+shell_on = true;
+acoustic_correction_on = true;
+app_press = 'from-data';
+% CALL PARAM
+param1 = f_call_parameters(R0, shell_on, acoustic_correction_on, app_press);
+% CALL MAKE_PRESS
+dataname = "data-fig5-marmottant.csv";
+make_press(param1, dataname);
+
+function make_press(params, dataname)
     % READ RADIUS HISTORY
     data = readmatrix(dataname);
     t = data(:, 1);
@@ -9,16 +20,19 @@ function press_hist(params, dataname)
     ppradiusp = fnder(ppradius, 1);
     % FIND R''
     ppradiuspp = fnder(ppradius, 2);
-    % PLOT P_ac
     p = p_ac(t, ppradius, ppradiusp, ppradiuspp, params);
-    plot(t, p/p(1),"DisplayName" ,"Pressure");
-    hold on;
-    plot(t, r/r(1),"DisplayName", "Radius")
-    xlabel("Time ($\mu s$)", "Interpreter","latex")
-    ylabel("$\frac{y}{y_0}$", "Interpreter","latex", 'Rotation',0)
-    legend()
-    % CREATE PPFORM OF p - TODO
-    % SAVE TO .mat FILE - TODO
+%     % PLOT P_ac
+%     plot(t, p/p(1),"DisplayName" ,"Pressure");
+%     hold on;
+%     plot(t, r/r(1),"DisplayName", "Radius")
+%     xlabel("Time ($\mu s$)", "Interpreter","latex")
+%     ylabel("$\frac{y}{y_0}$", "Interpreter","latex", 'Rotation',0)
+%     legend()
+    % CREATE PPFORM OF p
+    press_form = interp1(t, p, 'spline', 'pp');
+    % SAVE TO .MAT
+    clearvars -except press_form;
+    save("data/press-from-data.mat");
 end
 
 function pressure = p_ac(t, ppradius, ppradiusp, ppradiuspp, params)

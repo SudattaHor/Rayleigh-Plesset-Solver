@@ -3,12 +3,12 @@ function S = f_sigma(R, params)
 
     % UNPACK
     global ruptured;
-    R_buckling = params(12);
-    R_break_up = params(13);
-    R_ruptured = params(14);
-    kai = params(9);
-    S_water = params(7);
-    shell_on = params(21);
+    R_buckling = params.R_buckling;
+    R_break_up = params.R_break_up;
+    R_ruptured = params.R_ruptured;
+    kai = params.kai;
+    S_water = params.S_water;
+    shell_on = params.shell_on;
     % TOGGLE SHELL OFF
     if ~shell_on
         S = S_water;
