@@ -40,16 +40,16 @@ function pressure = p_ac(t, ppradius, ppradiusp, ppradiuspp, params)
     % in a piecewise polynomial
 
     % UNPACK
-    P0 = params(1);
-    kappa = params(2);
-    c = params(6);
-    rho_L = params(3);
-    p_vTb = params(10);
-    mu = params(5);
-    kappa_s = params(8);
-    R0 = params(15);
-    shell_on = params(21);
-    acoustic_correction_on = params(22);
+    P0 = params.P0;
+    kappa = params.kappa;
+    c = params.c;
+    rho_L = params.rho_L;
+    p_vTb = params.p_vTb;
+    mu = params.mu_L;
+    kappa_s = params.kappa_s;
+    R0 = params.R0;
+    shell_on = params.shell_on;
+    acoustic_correction_on = params.acoustic_correction_on;
     % COMPUTE R, R', R''
     R = ppval(ppradius, t);
     Rp = ppval(ppradiusp, t);
