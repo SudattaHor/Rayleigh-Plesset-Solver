@@ -4,25 +4,25 @@ function params = f_call_parameters(R, shell_on, acoustic_correction_on, app_pre
     %   R - the intial radius vector [R0; R0prime]
     
     params = struct;
-    % CONSTANTS
+    % GAS
     params.P0 = 1.01E5;            % atmospheric pressure
-    params.kappa = 1.4;            % ratio of specific heats - adiabatic
+    params.kappa = 1.095;            % ratio of specific heats - adiabatic
     % LIQUID
     params.rho_L = 1e3;            % liquid density
-    params.nu_L = 1.0e-04;         % liquid kinematic viscosity
+    params.nu_L = 1e-6;         % liquid kinematic viscosity
     params.mu_L = params.rho_L * params.nu_L;    % liquid dynamic viscosity
     params.c = 1.48e3;             % speed of sound in liquid (water)
     % BUBBLE / SHELL
-    params.S_water = 7.3e-02;      % surface tension of bubble
-    params.kappa_s = 1.5e-7;      % shell viscosity
-    params.kai = 2e-1;             % elastic modulus
+    params.S_water = 7.3e-02;      % surface tension of water
+    params.kappa_s = 15e-9;      % shell viscosity
+    params.kai = 1;             % elastic modulus
     params.p_vTb = 0;         % vapor pressure in bubble
     % INITIAL BUBBLE
     params.R0 = R(1);
     params.R0prime = R(2);
     % BUCKLING / BREAKUP
-    params.S_break_up = 1.3e-1;         % break-up tension
-    params.R_buckling = 0.95*params.R0;        % radius for buckling
+    params.S_break_up = 1.5;         % break-up tension
+    params.R_buckling = params.R0;        % radius for buckling
     params.R_break_up = R_turn(params.R_buckling, params.S_break_up, params.kai);
     params.R_ruptured = R_turn(params.R_buckling, params.S_water, params.kai);
     % SINE WAVE

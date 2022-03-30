@@ -1,3 +1,11 @@
+%{
+    Run this file to interpolate radius data from .csv file and calculate
+    the applied pressure needed to recreate the curve
+%}
+clear; close all; clc;
+addpath(strcat(pwd, '/data'));
+addpath(strcat(pwd, '/src'));
+
 % INPUT VALUES
 R0 = [0.975e-6; 0];
 shell_on = true;
@@ -7,9 +15,9 @@ app_press = 'from-data';
 param1 = f_call_parameters(R0, shell_on, acoustic_correction_on, app_press);
 % CALL MAKE_PRESS
 dataname = "data-fig5-marmottant.csv";
-make_press(param1, dataname);
+make_press(param1, dataname, true);
 
-function make_press(params, dataname)
+function make_press(params, dataname, show)
     % READ RADIUS HISTORY
     data = readmatrix(dataname);
     t = data(:, 1);
@@ -21,13 +29,15 @@ function make_press(params, dataname)
     % FIND R''
     ppradiuspp = fnder(ppradius, 2);
     p = p_ac(t, ppradius, ppradiusp, ppradiuspp, params);
-%     % PLOT P_ac
-%     plot(t, p/p(1),"DisplayName" ,"Pressure");
-%     hold on;
-%     plot(t, r/r(1),"DisplayName", "Radius")
-%     xlabel("Time ($\mu s$)", "Interpreter","latex")
-%     ylabel("$\frac{y}{y_0}$", "Interpreter","latex", 'Rotation',0)
-%     legend()
+    if show
+        % PLOT P_ac
+        plot(t, p/p(1),"DisplayName","Pressure");
+        hold on;
+        plot(t, r/r(1),"DisplayName","Radius")
+        xlabel("Time ($\mu s$)", "Interpreter","latex")
+        ylabel("$\frac{y}{y_0}$", "Interpreter","latex", 'Rotation',0)
+        legend()
+    end
     % CREATE PPFORM OF p
     press_form = interp1(t, p, 'spline', 'pp');
     % SAVE TO .MAT
@@ -68,10 +78,10 @@ function pressure = p_ac(t, ppradius, ppradiusp, ppradiuspp, params)
     else
         a3 = 0;
     end
-    p_G0 = (2.*sigmaR0./R0) + P0 - p_vTb;
-    a0 = correction .* (p_vTb + p_G0 * (R0./R).^(3*kappa));
+    p_G0 = (2*sigmaR0/R0) + P0;
+    a0 = correction .* (p_G0 .* (R0./R).^(3*kappa));
     a1 = -2 * sigmaR ./ R;
-    a2 = -4 * mu .* Rp ./ R;
+    a2 = -4 * mu * Rp ./ R;
     a4 = -rho_L * (R.*Rpp + 3 .* Rp.^2 ./ 2);
-    pressure = a0 + a1 + a2 + a3 + a4 - P0;
+    pressure = a0 + a1 + a2 + a3 + a4;
 end

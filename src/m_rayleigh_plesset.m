@@ -35,8 +35,8 @@ function drdt = m_rayleigh_plesset(t, r, params)
     else
         a3 = 0;
     end
-    p_G0 = (2*sigmaR0/R0) + P0 - p_vTb;
-    a0 = correction * (p_vTb + p_G0 * (R0/R)^(3*kappa)) / (rho_L * R);
+    p_G0 = (2*sigmaR0/R0) + P0;
+    a0 = correction * (p_G0 * (R0/R)^(3*kappa)) / (rho_L * R);
     a1 = -2 * sigmaR / (rho_L * R^2);
     a2 = -4 * mu * Rprime / (rho_L * R^2);
     a4 = -m_p(t, params) / (rho_L * R);
