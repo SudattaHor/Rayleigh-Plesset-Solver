@@ -28,7 +28,7 @@ function make_press(params, dataname, show)
     ppradiusp = fnder(ppradius, 1);
     % FIND R''
     ppradiuspp = fnder(ppradius, 2);
-    p = p_ac(t, ppradius, ppradiusp, ppradiuspp, params);
+    p = arrayfun(@(x) p_ac(x, ppradius, ppradiusp, ppradiuspp, params), t);
     if show
         % PLOT P_ac
         plot(t, p/p(1),"DisplayName","Pressure");
@@ -69,19 +69,19 @@ function pressure = p_ac(t, ppradius, ppradiusp, ppradiuspp, params)
     sigmaR = f_sigma(R, params);
     % TERMS for f_2
     if acoustic_correction_on
-        correction = 1 - (3 * kappa * Rp ./ c);
+        correction = 1 - (3 * kappa * Rp / c);
     else
         correction = 1;
     end
     if shell_on
-        a3 = -4 * kappa_s * Rp ./ (R.^2);
+        a3 = -4 * kappa_s * Rp / (R^2);
     else
         a3 = 0;
     end
     p_G0 = (2*sigmaR0/R0) + P0;
-    a0 = correction .* (p_G0 .* (R0./R).^(3*kappa));
-    a1 = -2 * sigmaR ./ R;
-    a2 = -4 * mu * Rp ./ R;
-    a4 = -rho_L * (R.*Rpp + 3 .* Rp.^2 ./ 2);
+    a0 = correction * (p_G0 * (R0/R)^(3*kappa));
+    a1 = -2 * sigmaR / R;
+    a2 = -4 * mu * Rp / R;
+    a4 = -rho_L * (R*Rpp + 3 * Rp^2 / 2);
     pressure = a0 + a1 + a2 + a3 + a4;
 end
