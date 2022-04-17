@@ -1,4 +1,4 @@
-function pressure = m_p(t, params)
+function pressure = f_pressure(t, params)
     % Calculates the applied pressure to the bubble
 
     addpath(strcat(pwd, '/data'));

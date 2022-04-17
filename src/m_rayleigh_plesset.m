@@ -39,7 +39,7 @@ function drdt = m_rayleigh_plesset(t, r, params)
     a0 = correction * (p_G0 * (R0/R)^(3*kappa)) / (rho_L * R);
     a1 = -2 * sigmaR / (rho_L * R^2);
     a2 = -4 * mu * Rprime / (rho_L * R^2);
-    a4 = -m_p(t, params) / (rho_L * R);
+    a4 = -f_pressure(t, params) / (rho_L * R);
     a5 = -3 * Rprime^2 / (2*R);
     % COMPONENTS
     f_1 = Rprime;
