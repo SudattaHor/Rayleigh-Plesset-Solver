@@ -6,6 +6,9 @@ clear; close all; clc;
 addpath(strcat(pwd, '/data'));
 addpath(strcat(pwd, '/src'));
 
+global ruptured;
+ruptured = true;
+
 % INPUT VALUES
 R0 = [0.975e-6; 0];
 shell_on = true;
@@ -31,8 +34,13 @@ function make_press(params, dataname, show)
     p = arrayfun(@(x) p_ac(x, ppradius, ppradiusp, ppradiuspp, params), t);
     if show
         % PLOT P_ac
+        tiledlayout(2,1)
+        nexttile
         plot(t, p/p(1),"DisplayName","Pressure");
+        ylabel("$\frac{p}{p_0}$", "Interpreter","latex", 'Rotation',0)
+        legend()
         hold on;
+        nexttile
         plot(t, r/r(1),"DisplayName","Radius")
         xlabel("Time ($\mu s$)", "Interpreter","latex")
         ylabel("$\frac{y}{y_0}$", "Interpreter","latex", 'Rotation',0)
